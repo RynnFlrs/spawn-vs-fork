@@ -47,6 +47,8 @@ child.on('message', (encrypted) => {
     child.kill()
     console.table({
       'Total Memory Allocated (MB)': (process.memoryUsage().rss / 1048576).toFixed(2),
+      'Amount of Memory Heap Used (MB)': (process.memoryUsage().heapUsed / 1048576).toFixed(2),
+      'Amount of Memory Used for Storing External Objects (MB)': (process.memoryUsage().external / 1048576).toFixed(2),
       'Process Up Time (Seconds)': process.uptime().toFixed(2),
     })
   } catch (error) {
